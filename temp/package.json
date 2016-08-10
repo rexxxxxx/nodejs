@@ -1,8 +1,8 @@
 {
-  "name": "server_side_javascript",
+  "name": "temp",
   "version": "1.0.0",
-  "description": "server side javascript tutorials",
-  "main": "hello.js",
+  "description": "",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

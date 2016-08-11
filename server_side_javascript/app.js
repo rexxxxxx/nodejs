@@ -1,8 +1,20 @@
 var express = require('express');
 var app = express();//express모듈은 함수이고, app를 리턴해서 익스프레스를 쓰기위한 약속
 
+//제이드 쓸때 이쁘게 만드는 소스
+ app.locals.pretty = true;
+
+// 템플릿 엔진 세팅, 익스프레스와 제이드를 연결.
+app.set('view engine', 'jade');
+app.set('views', './views');//Jade파일이 들어갈곳 => ./views
+
 //정적인 파일을 사용하기 위한 코드
 app.use(express.static('public'));
+
+app.get('/template', function(req, res){
+  res.render('temp', {time:Date(), _title:'Jade'});//렌더링 해서 보내줌. jade 쓰기위함.
+});// /template이란 경로로 들어오는 사용자에게 temp파일을 렌더링해서 보여줌.
+
 
 app.get('/', function(req, res){
   res.send('Hello H');

@@ -11,6 +11,24 @@ app.set('views', './views');//Jade파일이 들어갈곳 => ./views
 //정적인 파일을 사용하기 위한 코드
 app.use(express.static('public'));
 
+//------------Query String
+app.get('/topic', function(req, res){
+  //res.send(req.query.id+','+req.query.name);
+  var topics =[
+    'Javascript is ...',
+    'Nodejs is ...',
+    'Express is ...'
+  ];
+  var output = `
+    <a href = "/topic?id=0">JavaScript</a><br>
+    <a href = "/topic?id=1">NodeJs</a><br>
+    <a href = "/topic?id=2">Express</a><br><br>
+    ${topics[req.query.id]}
+  `
+  res.send(output);
+});
+
+
 app.get('/template', function(req, res){
   res.render('temp', {time:Date(), _title:'Jade'});//렌더링 해서 보내줌. jade 쓰기위함.
 });// /template이란 경로로 들어오는 사용자에게 temp파일을 렌더링해서 보여줌.

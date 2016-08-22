@@ -33,7 +33,7 @@ app.post('/form_receiver',function(req, res){
 });
 
 //------------Query String
-app.get('/topic/:topic_id', function(req, res){
+app.get('/topic', function(req, res){
   //res.send(req.query.id+','+req.query.name);
   var topics =[
     'Javascript is ...',
@@ -41,11 +41,11 @@ app.get('/topic/:topic_id', function(req, res){
     'Express is ...'
   ];
   var output = `
-    <a href = "/topic?id=0">JavaScript</a><br>
-    <a href = "/topic?id=1">NodeJs</a><br>
-    <a href = "/topic?id=2">Express</a><br><br>
+    <a href = "/topic/0">JavaScript</a><br>
+    <a href = "/topic/1">NodeJs</a><br>
+    <a href = "/topic/2">Express</a><br><br>
 
-    ${topics[req.params.topic_id]}
+    ${topics[req.query.id]}
   `
   //${topics[req.query.id]}
   res.send(output);
